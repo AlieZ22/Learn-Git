@@ -428,7 +428,12 @@ $ git checkout <branch>
 
 ##### 3，合并分支
 
+执行merge命令以合并分支
 
+```
+$ git merge <commit>
+// 如：切换到master分支中执行git merge issue1
+```
 
 ##### 4，删除分支
 
