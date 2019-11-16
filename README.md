@@ -19,7 +19,7 @@ Git 可以在任何时间点，把文档的状态作为更新记录保存起来�
 - 远程数据库：配有专用的服务器，为了多人共享而建立的数据库
 - 本地数据库：为了方便个人用户使用，在自己机器上配置的数据库
 
-![1573869715556](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573869715556.png)
+![](https://github.com/AlieZ22/test/tree/master/images/1.png)
 
 #### 创建数据库
 
