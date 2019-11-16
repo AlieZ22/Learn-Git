@@ -1,3 +1,4 @@
 Hello Git!
 Question: how to pull the history document?
 test conflict 1
+test conflict 2
