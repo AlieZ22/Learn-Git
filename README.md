@@ -32,7 +32,7 @@ Git 可以在任何时间点，把文档的状态作为更新记录保存起来�
 
 若要把文件或目录的添加和变更保存到数据库，就要进行提交。执行提交后，数据库中会生成上次提交的状态与当前状态的差异记录（称为revision）
 
-![1573869917316](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573869917316.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/2.png)
 
 系统会根据修改的内容计算出没有重复的40位英文及数字来给提交命名。指定这个命名，就可以在数据库中找到对应的提交。
 
@@ -42,7 +42,7 @@ Git 可以在任何时间点，把文档的状态作为更新记录保存起来�
 
 数据库和工作树之间有索引，索引是为了向数据库提交做准备的区域。
 
-![1573870158033](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573870158033.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/3.png)
 
 说明：Git在执行提交的时候，不是直接将工作树的状态保存到数据库，而是将索引的状态保存到数据库。因此，要提交文件，首先需要把文件加入到索引区域中。
 
@@ -65,7 +65,7 @@ $ git config --global user.name <用户名>
 $ git config --global user.email <电子邮件>
 ```
 
-![1573870952121](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573870952121.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/4.png)
 
 #### 3，创建数据库
 
@@ -89,7 +89,7 @@ $ git init
 $ git status
 ```
 
-![1573871539085](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573871539085.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/5.png)
 
 从status响应中，我们可以看到“sample.txt”目前不是历史记录对象。所以首先需要把它加入到索引，就可以追踪它的变更了。
 
@@ -102,7 +102,7 @@ $ git add sample.txt
 $ git status
 ```
 
-![1573871897480](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573871897480.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/6.png)
 
 从该状态中，我们可以看出sample.txt已经加入到索引了，那么我们就可以提交文件了。输入以下命令可以进行文件的提交：
 
@@ -110,25 +110,25 @@ $ git status
 $ git commit -m "first commit"
 ```
 
-![1573872016850](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573872016850.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/7.png)
 
 再次确认工作树和索引状态：
 
-![1573872065941](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573872065941.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/8.png)
 
 表示工作树上，没有新的变更需要提交。
 
 使用log命令，我们可以在数据库的提交记录中看到新的提交。
 
-![1573872138978](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573872138978.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/9.png)
 
 或者使用 git log --graph --oneline
 
-![1573888584421](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573888584421.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/10.png)
 
 修改sample.txt文件，使用diff命令，可以查看修改的内容
 
-![1573872448317](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573872448317.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/11.png)
 
 ### 共享数据库
 
@@ -140,7 +140,7 @@ $ git commit -m "first commit"
 
 在执行Push之后，本地的修改记录会被上传到远程数据库。所以远程数据库的修改记录就会和本地数据库的修改记录保持同步。
 
-![1573872672647](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573872672647.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/12.png)
 
 详细操作见步骤4
 
@@ -148,7 +148,7 @@ $ git commit -m "first commit"
 
 进行Clone操作，就可以复制远程数据库。远程数据库的全部内容都会被下载，之后在另一台机器的本地数据库上就可以操作了。
 
-![1573872790882](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573872790882.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/13.png)
 
 使用clone指令，可以复制数据库，在<repository>指定远程数据库的URL，在<directory>中指定新目录的名称
 
@@ -159,7 +159,7 @@ $ git clone <repository> <directory>
 
 结果如下：（可以在任意目录下直接git clone, 没必要在有.git的目录下）
 
-![1573886363066](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573886363066.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/14.png)
 
 #### 3，从远程数据库pull(拉取)
 
@@ -169,7 +169,7 @@ $ git clone <repository> <directory>
 
 进行Pull操作，就是从远程数据库下载最近的变更日志，并覆盖自己本地数据库的相关内容。
 
-![1573873022968](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573873022968.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/15.png)
 
 使用pull指令进行拉取操作，省略数据库名称的话，会默认在origin的数据库中进行pull
 
@@ -184,7 +184,7 @@ $ git pull <repository> <refspec> ...
 
 登陆到Github，进入自己的repositories，新建一个repository
 
-![1573873311130](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573873311130.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/16.png)
 
 可以给远程数据库取一个别名。这样，下次推送的时候就不需要输入长串的远程数据库地址了。我们将远程数据库命名为“origin”
 
@@ -251,7 +251,7 @@ $ git push -u origin master
 
 问题描述：本地无法push到远程
 
-![1573885813566](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573885813566.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/17.png)
 
 原因：在github上创建远程数据库时，选择了init README.md， 导致在本地无法push项目到远程，因为git发现远程的README.md 文件并没有存在于本地，所以报错了。
 
@@ -265,7 +265,8 @@ $ git pull --rebase origin master
 
 #### 5，整合修改记录
 
-注意：在执行pull之后，进行下一次push之前，如果有其他人进行了推送内容到远程数据库的话，那么你的push将被拒绝！![1573886875726](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573886875726.png)
+注意：在执行pull之后，进行下一次push之前，如果有其他人进行了推送内容到远程数据库的话，那么你的push将被拒绝！
+![Image text](https://github.com/AlieZ22/test/blob/master/images/18.png)
 
 这种情况下，在读取别人push的变更并进行合并操作之前，你的push都将被拒绝。这是因为，如果不进行合并就试图覆盖已有的变更记录的话，其他人push的变更（图中的提交C）就会丢失。
 
@@ -289,7 +290,8 @@ test conflict 2
 
 检查tutorial2目录此时的工作树和索引状态，将修改的sample.txt 加入索引，commit提交到本地数据库，push到远程数据库。
 
-为tutorial项目执行同tutorial2一样的操作，发现在push到远程数据库时，push被拒绝了。原因跟之前push出错一样。![1573887763171](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573887763171.png)
+为tutorial项目执行同tutorial2一样的操作，发现在push到远程数据库时，push被拒绝了。原因跟之前push出错一样。
+![Image text](https://github.com/AlieZ22/test/blob/master/images/19.png)
 
 为了把变更内容推送到远程数据库，我们必须手动解决冲突。首先运行pull，从远程数据库取得最新的变更记录。
 
@@ -297,7 +299,7 @@ test conflict 2
 $ git pull origin master
 ```
 
-![1573888028455](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573888028455.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/20.png)
 
 该图显示了合并时发生冲突的信息 [ Merge conflict in sample.txt ]
 
@@ -332,13 +334,13 @@ test conflict 2
 
 分支 是为了将修改记录的整体流程分叉保存，分叉后的分支不受其他分支的影响，所以在同一个数据库里可以同时进行多个修改。
 
-![1573904407421](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573904407421.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/21.png)
 
 分叉的分支可以合并。
 
 有时候，为了不受其他开发人员的影响，可以在主分支上建立自己专用的分支。完成工作后，将自己分支上的修改合并到主分支。
 
-![1573904563876](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573904563876.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/22.png)
 
 在数据库进行最初的提交后，Git会创建一个名为**master的分支**。因此之后的提交，在切换分支之前都会添加到master分支里。
 
@@ -356,7 +358,7 @@ Topic分支是为了开发新功能或修复Bug等任务而建立的分支。若
 
 Topic分支是从稳定的Merge分支创建的。完成作页后，要把Topic分支合并回Merge分支。
 
-![1573904926612](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573904926612.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/23.png)
 
 #### 分支的切换
 
@@ -364,7 +366,7 @@ Topic分支是从稳定的Merge分支创建的。完成作页后，要把Topic�
 
 **HEAD** 指向的时现在使用中的分支的最后一次更新。通常默认指向master分支的最后一次更新。通过移动HEAD，就可以变更使用的分支。
 
-![1573905252321](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573905252321.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/24.png)
 
 **stash** 是临时保存文件修改内容的区域。stash可以在那时保存工作树和索引里还没有提交的修改内容，事后再取出暂存的修改，应用到原来的分支或其他分支上。
 
@@ -372,7 +374,7 @@ Topic分支是从稳定的Merge分支创建的。完成作页后，要把Topic�
 
 但是如果在checkout的目标分支中 相同的文件也有修改，checkout会失败。这时要么先提交修改内容，要么**用stash暂时保存修改内容后在checkout**。
 
-![1573905515360](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573905515360.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/25.png)
 
 #### 分支的合并
 
@@ -382,25 +384,25 @@ Topic分支是从稳定的Merge分支创建的。完成作页后，要把Topic�
 
 如下图所示，bugfix分支是从master分支分叉出来的	
 
-![1573905767405](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573905767405.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/26.png)
 
 合并bugfix分支到master分支时，若master分支的状态没有再被修改过了，那么合并很简单，就是把master分支位置移动到bugfix的最新分支上，Git就会合并。这样的合并称为fast-forward(快速)合并。
 
-![1573905898669](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573905898669.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/27.png)
 
 但是，若master分支，在分出bugfix之后还有新的更新，这种情况下，要把master分支的修改内容和bugfix分支的修改内容汇合起来。合并两个修改内容生成一个新的提交，这是master分支的HEAD会移动到该提交上。
 
-![1573906003270](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573906003270.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/28.png)
 
-![1573906022349](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573906022349.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/29.png)
 
 **rebase方法** 
 
 和merge方法的例子一样，若使用rebase方法合并分支，它的历史记录将比较简单。
 
-![1573906236337](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573906236337.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/30.png)
 
-![1573906262370](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573906262370.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/31.png)
 
 参考：https://nvie.com/posts/a-successful-git-branching-model/
 
@@ -424,7 +426,7 @@ $ git checkout <branch>
 // 如：git checkout issue1
 ```
 
-![1573906816928](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573906816928.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/32.png)
 
 ##### 3，合并分支
 
