@@ -453,3 +453,103 @@ $ git branch
 * master
 ```
 
+
+
+### 远程数据库
+
+#### pull
+
+执行pull可以取得远程数据库的历史记录，下面对实现细节进行说明。
+
+首先确认更新的本地数据库没有任何改变：
+
+![1573994744152](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573994744152.png)
+
+此时只是执行fast-forward合并。其中master是本地数据库的master分支，origin/master是远程数据库origin的master分支。
+
+![1573994843618](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573994843618.png)
+
+如果本地数据库的master分支有新的历史纪录，就需要合并双方的修改：
+
+![1573994891808](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573994891808.png)
+
+执行pull就可以进行合并。这是，如果没有冲突的修改，就会自动创建合并提交。如果发生冲突的话，就要先解决冲突，再手动提交。（详见入门篇-共享数据库-5,整合修改记录）
+
+![1573995076307](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573995076307.png)
+
+#### fetch
+
+执行pull，远程数据库的内容就会自动合并。但是，有时候只是想确认远程数据库的内容而不想合并到本地。这种情况下，就可以使用fetch.
+
+使用fetch就可以取到远程数据库的最新历史记录，取得的提交会导入到没有名字的分支，这个分支可以从名为FETCH_HEAD的地方退出。
+
+![1573995465852](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573995465852.png)
+
+这种情况下，若要把远程数据库合并到本地，就可以合并FETCH_HEAD，或重新执行pull。
+
+注意：**其实pull的本质就是fetch+merge**
+
+#### push
+
+从本地数据库push到远程数据库时，要fast-forward合并push的分支。如果发生冲突，push会被拒绝。 可以 先把远程数据库pull回来然后用rebase合并，再push。
+
+![1573995690453](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573995690453.png)
+
+#### 标签
+
+标签是为了更方便地参考提交而给它表上易懂的名称。
+
+Git 可以使用两种标签：轻标签和注解标签。打上的标签是固定的，不能像分支一样移动位置。
+
+1. 轻标签：添加名称
+2. 注解标签：添加名称；添加注解；添加签名
+
+一般情况下，发布标签是采用注解标签来添加注解或签名的。而轻标签是为了在本地暂时使用或是一次性使用。
+
+![1573998315263](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573998315263.png)
+
+##### 添加轻标签
+
+使用tag命令来添加标签，在<tagname>中输入标签的名称
+
+```
+$ git tag <tagname>
+// 如：git tag apple
+```
+
+接着可以显示标签列表：
+
+```
+$ git tag
+apple
+```
+
+如果在log命令后添加 --decorate选项执行，就可以显示包含标签资料的历史记录：
+
+![1573999223816](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573999223816.png)
+
+此时的工作树状态为：
+
+![1573999252392](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573999252392.png)
+
+##### 添加注解标签
+
+若要添加注解标签，可以在tag命令后指定 -a 选项执行。执行后会启动编辑区，输入注解（vim语法，按i后插入字符，ESC退出插入状态，:wq保存退出），也可以指定 -m 选项来添加注解。
+
+```
+$ git tag -a <tagname>
+// 如：git tag -a banana
+```
+
+在显示标签的指令后指定 -n 选项，可以显示标签和注解：
+
+![1573999614503](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573999614503.png)
+
+##### 删除标签
+
+在tag 指令后添加 -d 选项，指定<tagname>删除标签
+
+```
+$ git tag -d <tagname>
+```
+
