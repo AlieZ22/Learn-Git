@@ -463,19 +463,19 @@ $ git branch
 
 首先确认更新的本地数据库没有任何改变：
 
-![1573994744152](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573994744152.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/33.png)
 
 此时只是执行fast-forward合并。其中master是本地数据库的master分支，origin/master是远程数据库origin的master分支。
 
-![1573994843618](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573994843618.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/34.png)
 
 如果本地数据库的master分支有新的历史纪录，就需要合并双方的修改：
 
-![1573994891808](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573994891808.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/35.png)
 
 执行pull就可以进行合并。这是，如果没有冲突的修改，就会自动创建合并提交。如果发生冲突的话，就要先解决冲突，再手动提交。（详见入门篇-共享数据库-5,整合修改记录）
 
-![1573995076307](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573995076307.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/36.png)
 
 #### fetch
 
@@ -483,7 +483,7 @@ $ git branch
 
 使用fetch就可以取到远程数据库的最新历史记录，取得的提交会导入到没有名字的分支，这个分支可以从名为FETCH_HEAD的地方退出。
 
-![1573995465852](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573995465852.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/37.png)
 
 这种情况下，若要把远程数据库合并到本地，就可以合并FETCH_HEAD，或重新执行pull。
 
@@ -493,7 +493,7 @@ $ git branch
 
 从本地数据库push到远程数据库时，要fast-forward合并push的分支。如果发生冲突，push会被拒绝。 可以 先把远程数据库pull回来然后用rebase合并，再push。
 
-![1573995690453](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573995690453.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/38.png)
 
 #### 标签
 
@@ -506,7 +506,7 @@ Git 可以使用两种标签：轻标签和注解标签。打上的标签是固�
 
 一般情况下，发布标签是采用注解标签来添加注解或签名的。而轻标签是为了在本地暂时使用或是一次性使用。
 
-![1573998315263](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573998315263.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/39.png)
 
 ##### 添加轻标签
 
@@ -526,11 +526,11 @@ apple
 
 如果在log命令后添加 --decorate选项执行，就可以显示包含标签资料的历史记录：
 
-![1573999223816](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573999223816.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/40.png)
 
 此时的工作树状态为：
 
-![1573999252392](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573999252392.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/41.png)
 
 ##### 添加注解标签
 
@@ -543,7 +543,7 @@ $ git tag -a <tagname>
 
 在显示标签的指令后指定 -n 选项，可以显示标签和注解：
 
-![1573999614503](C:\Users\MAIBENBEN\AppData\Roaming\Typora\typora-user-images\1573999614503.png)
+![Image text](https://github.com/AlieZ22/test/blob/master/images/42.png)
 
 ##### 删除标签
 
