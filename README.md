@@ -364,7 +364,7 @@ Topic分支是从稳定的Merge分支创建的。完成作页后，要把Topic�
 
 若要切换作业的分支，就要进行checkout操作。进行checkout时，git会从工作树还原向目标分支提交的修改内容。checkout之后的提交记录将被追加到目标分支。
 
-**HEAD** 指向的时现在使用中的分支的最后一次更新。通常默认指向master分支的最后一次更新。通过移动HEAD，就可以变更使用的分支。
+**HEAD** 指向的是现在使用中的分支的最后一次更新。通常默认指向master分支的最后一次更新。通过移动HEAD，就可以变更使用的分支。
 
 ![Image text](https://github.com/AlieZ22/test/blob/master/images/24.png)
 
