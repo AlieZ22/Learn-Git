@@ -555,4 +555,52 @@ $ git tag -d <tagname>
 
 
 
-### 未完待续...
+### 后续学习：
+
+1，Linux下常用的文本编辑器  Vim 以及 Nano
+
+使用Nano较为便利，方法是使用Ctrl结合其他按键进行
+
+2，cat <filename> 可便利地查看当前目录文件内容
+
+若想查看stage中的文件可使用：
+
+参考：https://www.jianshu.com/p/abca119649b5
+
+```
+$ git ls-files     // 显示stage中所有目录/文件
+$ git ls-files -s   //显示stage中的目录/文件，同时显示对应的Blob对象
+$ git cat-file -p 6cef   // 通过Blob对象，查询文件中的内容
+```
+
+3，如果log显示的历史信息太长了，发现退不出去了，可以按q键退出
+
+4，关于版本回退：分三种情况讨论
+
+- 未加入索引：使用checkout <filename> 可检出，即用stage中的内容覆盖当前工作区的内容
+
+- 通过add加入到索引中了：使用git reset <filename> 可重置索引中的file
+
+  ```
+  // 类似的，若错误的add了不想加入的文件还可以这样操作，来撤回add
+  git reset HEAD 如果后面什么都不加，那么就是撤销上一次add的全部内容
+  git reset HEAD <filename> 对某个文件的add操作撤销
+  ```
+
+- 通过commit提交了： 使用如下几种硬重置指令可以回退
+
+  ```
+  $ git reset --hard HEAD^     // 回退到上一个版本
+  $ git reset --hard HEAD~n    // 回退到前n个版本
+  $ git reset --hard <commitID>  // 回退到某个特定版本
+  
+  // 其中，可以通过git reflog 查看历史的所有提交
+  // 注意，若在回退到之前的版本后，使用git log查看历史提交，将不会显示该版本之后提交的版本，此时只有使用git reflog才能查看后续版本
+  ```
+
+  
+
+
+
+
+
